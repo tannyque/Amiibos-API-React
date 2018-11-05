@@ -1,0 +1,46 @@
+body {
+  background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Baloo Thambi', cursive;
+}
+
+/* .main-container {
+padding: 20px;
+} */
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.label-select {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+label {
+  padding-right: 20px;
+}
+
+h2, .amiibo-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+  margin: auto;
+  padding: 10px;
+}
+
+li {
+  font-size: 16px;
+}
+
+.image {
+  height: 250px;
+  width: 200px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+}
