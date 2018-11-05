@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import AmiiboContainer from './containers/AmiiboContainer';
 
 class App extends Component {
   render() {
     return (
-      "Hello world!"
+    <AmiiboContainer className="amiibo-container"/>
     );
   }
 }
