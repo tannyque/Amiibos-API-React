@@ -18,7 +18,7 @@ class AmiiboContainer extends Component {
   render(){
     return (
       <div className="amiibo-container">
-      <center><img src="images/amiibo_transparent_logo.png" className="logo" alt="logo" width="150px" height="75px"/></center>
+        <img src="images/amiibo_transparent_logo.png" className="logo" alt="logo" width="150px" height="75px"/>
         <AmiiboList className="amiibo-list" amiibos={this.state.amiibos}/>
       </div>
     );
