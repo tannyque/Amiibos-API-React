@@ -1,41 +1,57 @@
 body {
-  background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to left, #b5ebff, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: 'Baloo Thambi', cursive;
 }
 
 .logo {
   display: block;
   margin: auto;
+  width: 150px;
+  height: 75px;
 }
 
-/* .label-select {
-  display: flex;
-  justify-content: center;
-  padding-top: 25px;
-  padding-bottom: 25px;
-} */
+#series-select {
+  display: block;
+  margin: 25px auto;
+}
 
-/* label {
-  padding-right: 20px;
-} */
+h2 {
+  text-align: center;
+}
 
-h2, .amiibo-list {
+.amiibo-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: space-between;
   margin: auto;
-  padding: 10px;
+}
+
+.amiibo {
+  margin: 10px;
+}
+
+ul {
+  padding: 0;
+  margin: 20px;
 }
 
 li {
   font-size: 16px;
+  text-align: center;
+  list-style-type: none;
 }
 
 .image {
+  display: block;
+  margin: auto;
   height: 250px;
   width: 200px;
-  padding: 5px;
-  margin: 5px;
-  display: inline-block;
 }
+
+
+
+
+
+
