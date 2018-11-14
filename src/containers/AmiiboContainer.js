@@ -37,7 +37,7 @@ class AmiiboContainer extends Component {
   }
 
   getAmiibosBySeries(seriesIndex) {
-    const selectedSeries = this.state.amiibos[selectedSeries];
+    const selectedSeries = this.state.amiibos[seriesIndex];
     return this.state.amiibos.filter((amiibo) => {
       return amiibo.amiiboSeries === selectedSeries;
     });
