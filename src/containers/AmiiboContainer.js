@@ -7,8 +7,7 @@ class AmiiboContainer extends Component {
     super(props)
     this.state = {
       amiibos: null,
-      amiibosSeries: null,
-      currentSeries: null
+      amiiboSeries: null
     }
     this.handleSeriesSelected = this.handleSeriesSelected.bind(this);
   }
@@ -16,31 +15,46 @@ class AmiiboContainer extends Component {
   componentDidMount(){
     fetch("http://www.amiiboapi.com/api/amiibo/")
     .then(res => res.json())
-    .then(amiibos => this.setState({amiibos: amiibos.amiibo, amiibosSeries: amiibos.amiibo.amiiboSeries}))
+    .then(amiibos => this.setState({amiibos: amiibos.amiibo}))
   }
 
-  // handleSeriesSelected(index) {
-  //   console.log("handleSeriesSelected", this.state.amiiboSeries)
-  //   const selectedSeries = this.state.amiibosSeries[index];
-  //   this.setState({currentSeries: selectedSeries})
+  amiiboSeriesList(){
+    const fullList = this.state.amiibos.map(amiibo => amiibo.amiiboSeries)
+    return fullList;
+    // fullList is all the amiibo series
+  }
+
+  uniqueAmiiboSeries(seriesIndex){
+    const uniqueAmiiboSeries = this.amiiboSeriesList().filter((series, index, array) => {
+      return array.indexOf(series) === index;
+    })
+    this.setState({amiiboSeries: uniqueAmiiboSeries})
+    // uniqueAmiiboSeries is the unique amiibo series in an array
+  }
+
+  amiibosBySeries(seriesIndex){
+    // if(!this.state.amiiboSeries) return null;
+    const selectedSeries = this.uniqueAmiiboSeries()[seriesIndex];
+    return this.state.amiibos.filter((amiibo) => {
+      return (seriesIndex === 'All' || amiibo.amiiboSeries === selectedSeries)
+    });
+  }
+
+  // handleSeriesSelected(seriesIndex){
+  //   console.log(seriesIndex);
+  //   return "hello world";
   // }
 
-  handleSeriesSelected(series) {
-    var filteredSeries = [];
-    if (series === 'all') {
-      filteredSeries = this.state.amiibosSeries;
-    } else {
-      filteredSeries = this.getAmiibosBySeries(series)
+  handleSeriesSelected(seriesIndex) {
+    let filteredSeries = [];
+    if (seriesIndex === 'All') {
+      filteredSeries = this.state.amiibos;
     }
-    this.setState({amiibosSeries: filteredSeries})
-    console.log("handleSeriesSelected", this.state.amiiboSeries)
-  }
-
-  getAmiibosBySeries(seriesIndex) {
-    const selectedSeries = this.state.amiibos[seriesIndex];
-    return this.state.amiibos.filter((amiibo) => {
-      return amiibo.amiiboSeries === selectedSeries;
-    });
+    else {
+      filteredSeries = this.uniqueAmiiboSeries(seriesIndex);
+    }
+    // this.setState({amiiboSeries: filteredSeries})
+    console.log(this.state.amiiboSeries);
   }
 
   render(){

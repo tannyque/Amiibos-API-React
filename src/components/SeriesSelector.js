@@ -20,7 +20,7 @@ const SeriesSelector = (props) => {
   return (
     <div className="series-selector">
       <select id="series-select" onChange={handleSeriesSelected}>
-        <option value="all">All</option>
+        <option value="All">All</option>
         {options}
       </select>
     </div>
